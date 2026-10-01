@@ -2,90 +2,145 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#20252B">
-  <meta name="description" content="Euviral — estúdio editorial para criar conteúdos para Instagram e TikTok.">
+  <meta name="description" content="Euviral — estúdio interativo para criar conteúdo social.">
+  <title>Euviral — Estúdio de Conteúdo</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
-  <title>Euviral · Estúdio Editorial</title>
 </head>
 <body>
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#inicio" aria-label="Euviral início">
-        <span class="brand-mark">E</span><span>EUviral</span>
-      </a>
-      <div class="top-actions">
-        <button id="installBtn" class="ghost-btn hidden" type="button">Instalar</button>
-        <button id="clearHistoryBtn" class="ghost-btn" type="button">Limpar histórico</button>
-      </div>
-    </header>
-
-    <main id="inicio" class="container">
-      <section class="hero">
-        <div>
-          <p class="eyebrow">EUVIRAL · ESTÚDIO EDITORIAL</p>
-          <h1>Transforme uma ideia em conteúdo pronto para publicar.</h1>
-          <p class="hero-copy">Crie ganchos, roteiros e estruturas para Reels, TikTok e carrosséis. Tudo roda no navegador e seus rascunhos ficam salvos neste dispositivo.</p>
-        </div>
-        <div class="hero-badge"><span>●</span> Offline-ready</div>
-      </section>
-
-      <section class="mosaic-grid" aria-label="Ferramentas principais">
-        <button class="mosaic-card video-card" data-format="reels" type="button">
-          <div class="card-top"><span class="pill">9:16</span><span class="arrow">↗</span></div>
-          <div><div class="icon-box dark">▶</div><h2>Estúdio de Vídeo</h2><p>Reels e TikTok com roteiro vertical, cortes, CTA e guia de zona segura.</p></div>
-        </button>
-        <button class="mosaic-card photo-card" data-format="carrossel" type="button">
-          <div class="card-top"><span class="pill">4:5 · FEED</span><span class="arrow">↗</span></div>
-          <div><div class="icon-box accent">▧</div><h2>Fotos & Capas</h2><p>Estruturas editoriais para feed, capas e carrosséis.</p></div>
-        </button>
-      </section>
-
-      <section class="studio mosaic-card" id="criador">
-        <div class="section-heading">
-          <div class="icon-box accent">✦</div>
-          <div><p class="eyebrow">CRIADOR</p><h2>Gerador de Ganchos e Roteiros</h2><p>Escolha o formato, informe o tema e gere uma primeira versão editável.</p></div>
-        </div>
-
-        <div class="format-tabs" role="tablist" aria-label="Formato">
-          <button class="format-tab active" data-format="reels" type="button">Instagram Reels · 9:16</button>
-          <button class="format-tab" data-format="tiktok" type="button">TikTok · 9:16</button>
-          <button class="format-tab" data-format="carrossel" type="button">Carrossel · 4:5</button>
-        </div>
-
-        <label class="field-label" for="topic">Tema do conteúdo</label>
-        <div class="input-row">
-          <input id="topic" maxlength="180" autocomplete="off" placeholder="Ex.: Como aumentar o engajamento sem depender do algoritmo...">
-          <button id="generateBtn" class="primary-btn" type="button"><span id="generateIcon">✦</span><span id="generateText">Criar roteiro</span></button>
-        </div>
-        <p class="hint">O gerador local cria uma estrutura editorial sem enviar seu texto para um servidor.</p>
-
-        <div id="result" class="result hidden" aria-live="polite">
-          <div class="result-head"><div><p class="eyebrow">ROTEIRO SUGERIDO</p><p id="resultFormat" class="muted">Instagram Reels · 9:16</p></div><button id="copyBtn" class="secondary-btn" type="button">Copiar</button></div>
-          <textarea id="output" spellcheck="true" aria-label="Roteiro gerado"></textarea>
-          <div class="result-actions"><button id="saveBtn" class="secondary-btn" type="button">Salvar no histórico</button><button id="newBtn" class="secondary-btn" type="button">Novo roteiro</button></div>
-        </div>
-      </section>
-
-      <section class="safe-section mosaic-card">
-        <div class="section-heading compact"><div class="icon-box dark">⌗</div><div><p class="eyebrow">SAFE ZONE</p><h2>Visualizador de zona segura</h2><p>Confira onde manter textos e elementos importantes em vídeos 9:16.</p></div></div>
-        <div class="safe-layout">
-          <div class="phone-frame" id="phoneFrame"><div class="phone-content"><div class="safe-label">PONTO FOCAL</div></div><div class="zone top">Zona superior</div><div class="zone right">Interações</div><div class="zone bottom">Legenda · Perfil · Áudio</div><button id="toggleZoneBtn" class="zone-toggle" type="button">Ocultar guia</button></div>
-          <div class="safe-copy"><h3>Área central segura</h3><p>Mantenha o assunto principal dentro da área verde. As zonas externas são aproximações para evitar sobreposição de controles das plataformas.</p><ul><li>Vídeo vertical 9:16</li><li>Área central para ponto focal</li><li>Guia pode ser ocultada a qualquer momento</li></ul></div>
-        </div>
-      </section>
-
-      <section class="history mosaic-card" id="historico">
-        <div class="section-heading compact"><div class="icon-box accent">↺</div><div><p class="eyebrow">HISTÓRICO LOCAL</p><h2>Seus últimos conteúdos</h2><p>Armazenados apenas no navegador deste dispositivo.</p></div></div>
-        <div id="historyList" class="history-list"><p class="empty">Nenhum conteúdo salvo ainda.</p></div>
-      </section>
-
-      <footer><span>EUVIRAL · ESTÚDIO EDITORIAL</span><span class="accent-text">CRIAR · EDITAR · PUBLICAR</span></footer>
-    </main>
-  </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js" defer></script>
+
+  <header class="topbar">
+    <a class="brand" href="#" data-nav="studio" aria-label="Euviral início">
+      <img src="assets/logo.svg" alt="" width="38" height="38">
+      <span><strong>euviral</strong><small>estúdio editorial</small></span>
+    </a>
+    <nav class="topnav" aria-label="Navegação principal">
+      <button data-nav="studio" class="nav-btn active">Criar</button>
+      <button data-nav="history" class="nav-btn">Histórico <b id="historyCount">0</b></button>
+    </nav>
+    <button id="installBtn" class="ghost-btn hidden">Instalar app</button>
+  </header>
+
+  <main class="shell">
+    <section id="studioView" class="view active">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">01 / CONTENT STUDIO</p>
+          <h1>Transforme uma ideia em <em>conteúdo publicável.</em></h1>
+          <p class="hero-copy">Escolha o formato, defina o objetivo e construa seu conteúdo com um fluxo visual — do gancho à publicação.</p>
+        </div>
+        <div class="hero-stat"><strong id="projectStatus">RASCUNHO</strong><span>projeto atual</span></div>
+      </div>
+
+      <div class="workspace">
+        <aside class="panel setup-panel">
+          <div class="panel-title"><span>01</span><h2>Briefing</h2></div>
+
+          <label class="field-label" for="topic">Sobre o que você quer falar?</label>
+          <textarea id="topic" rows="4" placeholder="Ex.: Como organizar a rotina e parar de procrastinar..."></textarea>
+
+          <label class="field-label">Formato</label>
+          <div class="format-grid">
+            <button class="format-card selected" data-format="reels"><span>▶</span><strong>Reels</strong><small>9:16 · vídeo</small></button>
+            <button class="format-card" data-format="tiktok"><span>♪</span><strong>TikTok</strong><small>9:16 · vídeo</small></button>
+            <button class="format-card" data-format="carousel"><span>▦</span><strong>Carrossel</strong><small>4:5 · slides</small></button>
+          </div>
+
+          <label class="field-label">Objetivo</label>
+          <div class="chips" id="goalChips">
+            <button class="chip selected" data-goal="engajar">Engajar</button>
+            <button class="chip" data-goal="ensinar">Ensinar</button>
+            <button class="chip" data-goal="vender">Vender</button>
+            <button class="chip" data-goal="conectar">Conectar</button>
+          </div>
+
+          <label class="field-label">Tom</label>
+          <select id="tone">
+            <option value="direto">Direto e confiante</option>
+            <option value="leve">Leve e divertido</option>
+            <option value="profissional">Profissional</option>
+            <option value="inspirador">Inspirador</option>
+            <option value="provocativo">Provocativo</option>
+          </select>
+
+          <button id="generateBtn" class="primary-btn"><span>✦</span> Gerar conteúdo</button>
+          <button id="surpriseBtn" class="secondary-btn">Não tenho ideia — surpreenda-me</button>
+        </aside>
+
+        <section class="panel result-panel">
+          <div class="panel-title result-head">
+            <div><span>02</span><h2>Construção</h2></div>
+            <div class="result-actions">
+              <button id="saveBtn" class="icon-btn" title="Salvar">♡ <span>Salvar</span></button>
+              <button id="copyBtn" class="icon-btn" title="Copiar">⧉ <span>Copiar</span></button>
+            </div>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <div class="empty-icon">✦</div>
+            <h3>Seu conteúdo começa aqui.</h3>
+            <p>Digite uma ideia ao lado e clique em <strong>Gerar conteúdo</strong>. Você poderá editar cada parte antes de salvar.</p>
+          </div>
+
+          <div id="resultState" class="result-state hidden">
+            <div class="result-meta"><span id="resultFormat">REELS · 9:16</span><span id="resultGoal">ENGAJAR</span></div>
+
+            <article class="content-block hook-block">
+              <div class="block-head"><label>GANCHO</label><button data-copy-target="hook">copiar</button></div>
+              <textarea id="hook" rows="3"></textarea>
+            </article>
+
+            <article class="content-block">
+              <div class="block-head"><label>ROTEIRO</label><span id="scriptCounter">0 caracteres</span></div>
+              <textarea id="script" rows="10"></textarea>
+            </article>
+
+            <article class="content-block">
+              <div class="block-head"><label>CTA</label><button data-copy-target="cta">copiar</button></div>
+              <textarea id="cta" rows="3"></textarea>
+            </article>
+
+            <div id="carouselPreview" class="carousel-editor hidden">
+              <div class="block-head"><label>SLIDES DO CARROSSEL</label><button id="addSlide">+ slide</button></div>
+              <div id="slides"></div>
+            </div>
+
+            <div class="safezone-wrap">
+              <div class="block-head"><label>PRÉ-VISUALIZAÇÃO · ZONA SEGURA</label><button id="toggleSafe">Ocultar guia</button></div>
+              <div class="phone-stage" id="phoneStage">
+                <div class="phone-content">
+                  <span id="previewFormat">REELS</span>
+                  <h3 id="previewHook">Seu gancho aparece aqui.</h3>
+                  <small>euviral · @seuperfil</small>
+                </div>
+                <div id="safeOverlay" class="safe-overlay">
+                  <div class="safe-top">interface superior</div>
+                  <div class="safe-right">ações</div>
+                  <div class="safe-bottom">legenda / perfil / áudio</div>
+                  <div class="safe-center">ÁREA SEGURA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="historyView" class="view">
+      <div class="page-heading">
+        <div><p class="eyebrow">02 / LIBRARY</p><h1>Seus conteúdos.</h1><p>Projetos salvos neste dispositivo.</p></div>
+        <button id="clearHistory" class="danger-btn">Limpar histórico</button>
+      </div>
+      <div id="historyList" class="history-grid"></div>
+      <div id="historyEmpty" class="empty-history"><div>◎</div><h3>Nenhum conteúdo salvo.</h3><p>Crie algo no estúdio e salve para encontrar aqui.</p></div>
+    </section>
+  </main>
+
+  <footer><span>EUviral · criar · editar · publicar</span><span>offline-first · seus rascunhos ficam neste dispositivo</span></footer>
+  <script src="app.js"></script>
 </body>
 </html>
