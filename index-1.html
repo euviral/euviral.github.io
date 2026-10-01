@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Euviral</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6d4aff">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1c2333;--mu:#667085;--ac:#6d4aff;--ac2:#ece8ff;--bd:#e3e6ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12141c;--card:#1c202c;--tx:#eef0f6;--mu:#98a2b3;--ac:#9b84ff;--ac2:#2a2650;--bd:#2c3141}}
+:root[data-theme="dark"]{--bg:#12141c;--card:#1c202c;--tx:#eef0f6;--mu:#98a2b3;--ac:#9b84ff;--ac2:#2a2650;--bd:#2c3141}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,Arial,sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px 16px 90px}
+h1{font-size:1.4rem;margin:4px 0}h2{font-size:1.1rem;margin:0 0 8px}
+p.s{color:var(--mu);margin:0 0 14px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav button{flex:1;border:0;background:none;color:var(--mu);padding:10px 2px;font:inherit;font-size:.78rem;cursor:pointer}
+nav button.on{color:var(--ac);font-weight:700}
+nav span{display:block;font-size:1.3rem}
+section{display:none}section.on{display:block}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+label{display:block;font-weight:600;margin:10px 0 4px}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit}
+.b{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:12px 16px;font:inherit;font-weight:600;cursor:pointer;margin-top:12px;width:100%}
+.b2{background:var(--ac2);color:var(--ac);border:0;border-radius:8px;padding:8px 12px;font:inherit;font-size:.85rem;cursor:pointer;margin-top:8px}
+details{margin-top:6px;color:var(--mu);font-size:.92rem}summary{cursor:pointer;color:var(--ac)}
+.w{background:var(--ac2);border-radius:12px;padding:12px;font-size:.92rem;margin-bottom:12px}
+.d{display:flex;gap:8px;align-items:center;margin-bottom:8px}.d b{width:44px;font-size:.85rem}.d input[type=checkbox]{width:24px;height:24px}
+pre{white-space:pre-wrap;font:inherit;margin:0}
+</style>
+</head>
+<body>
+<main>
+<button class="b2" id="hb" style="float:right;margin:0">👤 Entrar</button>
+<h1>🔥 Euviral</h1>
+<p class="s">Ideias, roteiros e organização para quem quer começar a criar conteúdo. Grátis.</p>
+
+<section id="t0" class="on">
+<div class="c">
+<h2>1. Ideias de vídeo</h2>
+<label for="nic">Seu tema</label>
+<select id="nic"></select>
+<label for="tem">Sobre o que você vai falar?</label>
+<input id="tem" placeholder="ex.: bolo de pote, unhas, crochê">
+<button class="b" id="gi">Gerar ideias</button>
+</div>
+<div id="ideas"></div>
+</section>
+
+<section id="t1">
+<div class="c">
+<h2>2. Legenda e hashtags</h2>
+<label for="lt">Assunto do vídeo</label>
+<input id="lt" placeholder="ex.: bolo de pote de 5 reais">
+<label for="lo">Tom</label>
+<select id="lo"><option>Amigável</option><option>Divertido</option><option>Profissional</option></select>
+<button class="b" id="gl">Gerar legenda</button>
+</div>
+<div id="cap"></div>
+</section>
+
+<section id="t2">
+<div class="c">
+<h2>3. Calendário da semana</h2>
+<p class="s" style="margin:0 0 10px">Postar com frequência é o que mais ajuda. Marque o que já postou.</p>
+<div id="cal"></div>
+<div class="w" id="st"></div>
+<button class="b2" id="rs">Limpar semana</button>
+</div>
+</section>
+
+<section id="t4">
+<div class="w">Com vergonha ou sem ideias? Escolha o jeito de gravar e leia o roteiro. Não precisa ficar perfeito.</div>
+<div class="c">
+<h2>Roteiros prontos</h2>
+<label for="rt">Sobre o que é o vídeo?</label>
+<input id="rt" placeholder="ex.: bolo de pote">
+<label for="rf">Como você quer gravar?</label>
+<select id="rf"><option value="0">Sem mostrar o rosto</option><option value="1">Só com a minha voz</option><option value="2">Aparecendo (com texto para ler)</option></select>
+<button class="b" id="gr">Ver roteiros</button>
+</div>
+<div id="ros"></div>
+<div class="c">
+<h2>Roteiros por objetivo</h2>
+<p class="s" style="margin:0">Usa o assunto digitado acima.</p>
+<label for="ob">Meu objetivo</label>
+<select id="ob"></select>
+<button class="b" id="go">Ver roteiros</button>
+</div>
+<div id="ros2"></div>
+
+<div class="c"><h2>Dicas para perder a timidez</h2>
+<p>• Grave o primeiro vídeo só para você, sem postar.<br>• Grave 3 vezes: a terceira costuma ficar melhor.<br>• Fale como se fosse para um amigo.<br>• Os primeiros vídeos são treino, e isso é normal.</p></div>
+</section>
+
+<section id="t5">
+<div class="c"><h2>👤 Minha conta</h2>
+<p class="s" style="margin:0 0 8px">Entre para guardar seu calendário e seus roteiros salvos e usar em outro celular.</p>
+<div id="cn" class="w" style="display:none">O login ainda não foi ativado neste app. Tudo funciona normalmente, e os dados ficam salvos só neste celular.</div>
+<div id="cf"><label for="ce">E-mail</label><input id="ce" type="email" autocomplete="email">
+<label for="cp">Senha (mínimo 6 caracteres)</label><input id="cp" type="password" autocomplete="current-password">
+<button class="b" id="ci">Entrar</button>
+<button class="b2" id="cc">Criar conta</button> <button class="b2" id="cr">Esqueci a senha</button></div>
+<div id="co" style="display:none"><p>Conectado como <b id="cw"></b></p>
+<button class="b2" id="cx">Sair</button> <button class="b2" id="cd">Apagar minha conta e dados</button></div>
+<p id="cm" class="s" style="margin:10px 0 0"></p>
+<button class="b2" id="ct">🔧 Testar conexão</button>
+<pre id="cdg" style="font-size:.8rem;margin-top:8px;word-break:break-all"></pre>
+<p class="s" style="font-size:.8rem;margin:8px 0 0">Guardamos apenas seu e-mail, seu calendário e seus roteiros salvos. Não vendemos seus dados. Você pode apagar tudo quando quiser. <a href="#" id="pv" style="color:var(--ac)">Política de privacidade</a></p></div>
+<div class="c"><h2>⭐ Roteiros salvos</h2><div id="cfv"></div></div>
+</section>
+
+<section id="t6">
+<div class="c"><h2>🔒 Política de privacidade</h2>
+<p><b>O que guardamos:</b> se você criar conta, guardamos seu e-mail, seu calendário da semana e os roteiros que você salvar. Sem conta, nada sai do seu celular.</p>
+<p><b>Para quê:</b> só para o app funcionar e para você usar em outro celular. Não vendemos seus dados e não mostramos anúncios.</p>
+<p><b>Onde ficam:</b> nos servidores do Google (Firebase), que podem estar fora do Brasil.</p>
+<p><b>Seus direitos:</b> você pode ver, corrigir e apagar seus dados. Para apagar tudo, entre na sua conta e toque em "Apagar minha conta e dados".</p>
+<p><b>Menores de 18 anos:</b> usem com autorização de um responsável.</p>
+<p class="s" style="font-size:.8rem">Texto simples, feito de boa-fé, e pode mudar. Atualizado em outubro de 2026.</p>
+<button class="b2" id="pb">← Voltar</button></div>
+</section>
+
+<section id="t3">
+<div class="c"><h2>📲 Instalar e compartilhar</h2>
+<p>Instale o Euviral no celular. Ele abre até sem internet (login e nuvem precisam de internet).</p>
+<button class="b" id="ib" style="display:none">📲 Instalar o app</button>
+<button class="b2" id="sh" style="margin-top:12px;width:100%">Compartilhar o Euviral</button></div>
+<div class="w"><b>Seja realista:</b> a maioria dos criadores ganha pouco ou nada nos primeiros meses. Ninguém pode garantir ganhos. Desconfie de quem cobra para "ensinar a ficar rico".</div>
+<div class="c"><h2>Formas reais de ganhar</h2>
+<p><b>1. Vender algo seu.</b> Produto ou serviço (doces, artesanato, aulas). Costuma ser o caminho mais rápido para quem está começando.</p>
+<p><b>2. Afiliados.</b> Você indica um produto e recebe comissão por venda. Só indique o que você realmente usaria.</p>
+<p><b>3. Parcerias com marcas.</b> Pequenos negócios locais costumam trocar produto ou pagar por divulgação.</p>
+<p><b>4. Programas das plataformas.</b> Instagram, TikTok e YouTube têm programas de pagamento, mas exigem número mínimo de seguidores e visualizações. Os requisitos mudam: confira sempre no site oficial de cada plataforma.</p></div>
+<div class="c"><h2>Cuidados</h2>
+<p>• Não use música, vídeo ou imagem de terceiros sem permissão.<br>• Nunca pague para "liberar" ganhos nem passe senha para ninguém.<br>• Mostre produtos e resultados de forma honesta.</p></div>
+<div class="c"><h2>O que está funcionando em 2026</h2>
+<p>• <b>Autenticidade:</b> conteúdo humano e sem filtro ganhou espaço. O TikTok chama isso de "chá de realidade".<br>• <b>Vídeos curtos:</b> entre 15 e 45 segundos é uma faixa comum de bom resultado.<br>• <b>Simples vence:</b> no Instagram, vídeos de uma tomada só vêm indo bem frente a produções caprichadas.<br>• <b>Faça perguntas:</b> elas geram comentários.<br>• <b>Primeiros 10 dias:</b> quase todas as visualizações vêm nesse período, então não espere o vídeo "bombar" meses depois.<br>• <b>Contas pequenas:</b> ainda crescem falando de problemas reais das pessoas.<br>• <b>Hashtags:</b> cerca de 3 a 5 no TikTok e 5 a 10 no Instagram.<br>• <b>Modinhas de áudio e desafios</b> mudam em semanas. Veja a aba de tendências do próprio app e use só áudio da biblioteca da plataforma.<br><small>Fontes: relatórios do TikTok e da Metricool, entre outros, consultados em outubro de 2026.</small></p></div>
+<div class="c"><h2>Desafio de 7 dias</h2>
+<p>1. Grave só para você, sem postar.<br>2. Poste sua apresentação.<br>3. Mostre seu produto ou tema em 15 s.<br>4. Responda uma dúvida comum.<br>5. Mostre os bastidores.<br>6. Conte um erro e o que aprendeu.<br>7. Peça opinião e agradeça.</p>
+<button class="b" id="ch">Levar para o meu calendário</button></div>
+<div class="c"><h2>Gravar bem com o celular</h2>
+<p>• Grave na vertical, com a câmera limpa.<br>• Fique de frente para uma janela: luz natural melhora tudo.<br>• Fale perto do celular, em lugar silencioso.<br>• Faça cenas curtas, de 2 a 5 segundos.<br>• Coloque legenda na tela: muita gente assiste sem som.</p></div>
+<div class="c"><h2>Editar no CapCut (grátis)</h2>
+<p>1. Novo projeto e escolha seus vídeos.<br>2. Corte o começo: o vídeo deve começar direto.<br>3. Use a opção de legendas automáticas, se houver.<br>4. Escolha uma música da biblioteca do próprio app.<br>5. Exporte e poste.<br><small>Os nomes dos botões podem mudar com as atualizações do app.</small></p></div>
+<div class="c"><h2>Música sem problema</h2>
+<p>Música famosa pode silenciar ou derrubar seu vídeo. Use músicas da biblioteca da plataforma, músicas suas, ou faixas com licença livre. Para conta de negócio, a biblioteca costuma ser mais limitada: confira dentro do app.</p></div>
+</section>
+</main>
+
+<nav id="nv">
+<button class="on" data-t="0"><span>💡</span>Ideias</button>
+<button data-t="4"><span>🎭</span>Roteiros</button>
+<button data-t="1"><span>✍️</span>Legenda</button>
+<button data-t="2"><span>📅</span>Semana</button>
+<button data-t="3"><span>📘</span>Guia</button>
+</nav>
+
+<script>
+var NICHOS={
+"Culinária":["#receitafacil","#comidacaseira","#culinaria"],
+"Beleza e unhas":["#beleza","#unhas","#autoestima"],
+"Artesanato":["#artesanato","#feitoamao","#crochet"],
+"Fitness em casa":["#treinoemcasa","#saude","#fitness"],
+"Dicas e educação":["#dicas","#aprendizado","#estudos"],
+"Vender meu produto":["#empreendedorismo","#vendasonline","#negociolocal"],
+"Humor":["#humor","#engracado","#rir"],
+"Fé e reflexão":["#fe","#reflexao","#gratidao"]
+};
+var G=["3 erros que todo iniciante comete em {t}","{t} em 30 segundos: passo a passo","Mito ou verdade sobre {t}","Antes e depois: {t}","Quanto custa começar com {t} (valores reais)","Respondendo a pergunta mais comum sobre {t}","Um dia comigo fazendo {t}"];
+var $=function(i){return document.getElementById(i)};
+function ls(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function sv(k,v){ls(k,v);if(typeof cs==="function")cs()}
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+
+var nic=$("nic");Object.keys(NICHOS).forEach(function(n){var o=el("option",0,n);nic.appendChild(o)});
+
+document.querySelectorAll("#nv button").forEach(function(b){b.onclick=function(){
+document.querySelectorAll("#nv button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");
+document.querySelectorAll("section").forEach(function(s){s.classList.remove("on")});
+$("t"+b.dataset.t).classList.add("on");window.scrollTo(0,0)}});
+
+var cal=ld("cal",null);if(!cal||cal.length!==7)cal=[0,1,2,3,4,5,6].map(function(){return{i:"",d:false}});
+var DIAS=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+function rc(){var h=$("cal");h.textContent="";var f=0;
+cal.forEach(function(x,n){var r=el("div","d");r.appendChild(el("b",0,DIAS[n]));
+var i=el("input");i.placeholder="Ideia do dia";i.value=x.i;i.setAttribute("aria-label","Ideia de "+DIAS[n]);
+i.oninput=function(){x.i=i.value;sv("cal",cal)};r.appendChild(i);
+var c=el("input");c.type="checkbox";c.checked=x.d;c.setAttribute("aria-label","Postado "+DIAS[n]);
+c.onchange=function(){x.d=c.checked;sv("cal",cal);rs()};r.appendChild(c);h.appendChild(r);if(x.d)f++});rs()}
+function rs(){var f=cal.filter(function(x){return x.d}).length;
+$("st").textContent=f===0?"Comece hoje: um vídeo simples já conta.":f+" de 7 dias postados. "+(f>=4?"Ótimo ritmo! 🎉":"Continue, a constância faz diferença.")}
+$("rs").onclick=function(){cal.forEach(function(x){x.i="";x.d=false});sv("cal",cal);rc()};
+rc();
+
+$("gi").onclick=function(){var t=$("tem").value.trim()||"o seu assunto";var h=$("ideas");h.textContent="";
+G.forEach(function(g){var tx=g.replace("{t}",t);var c=el("div","c");c.appendChild(el("b",0,tx));
+var d=el("details");d.appendChild(el("summary",0,"Ver roteiro"));
+var p=el("pre",0,"1) Gancho (0 a 3 s): diga a ideia direto, olhando para a câmera. Ex.: \""+tx+"\".\n2) Meio (3 a 25 s): mostre 3 passos ou exemplos curtos, um de cada vez.\n3) Final: peça para seguir, comentar ou salvar o vídeo.\nDica: grave perto de uma janela, com luz natural.");
+d.appendChild(p);c.appendChild(d);
+var b=el("button","b2","+ Adicionar ao calendário");
+b.onclick=function(){var s=cal.find(function(x){return !x.i});if(s){s.i=tx;sv("cal",cal);rc();b.textContent="Adicionado ✓"}else{b.textContent="Semana cheia"}};
+c.appendChild(b);star(c,t,tx);h.appendChild(c)})};
+
+$("gl").onclick=function(){var t=$("lt").value.trim()||"meu vídeo de hoje";var o=$("lo").value;
+var a={"Amigável":"Olha o que eu preparei pra você hoje! 💜 ","Divertido":"Ninguém merece ficar sem saber isso 😂 ","Profissional":"Dica prática para você: "};
+var f={"Amigável":" Me conta aqui nos comentários o que achou!","Divertido":" Marca aquele amigo que precisa ver isso!","Profissional":" Salve este vídeo para consultar depois."};
+var tg=NICHOS[nic.value].concat(["#reels","#tiktokbrasil"]).join(" ");
+var h=$("cap");h.textContent="";var c=el("div","c");
+var tx=a[o]+t+"."+f[o]+"\n\n"+tg;c.appendChild(el("pre",0,tx));
+var b=el("button","b2","Copiar");b.onclick=function(){try{navigator.clipboard.writeText(tx);b.textContent="Copiado ✓"}catch(e){b.textContent="Selecione e copie"}};
+c.appendChild(b);h.appendChild(c)};
+var R=[
+[{n:"Mãos em ação",s:["Cena 1 (3 s): texto na tela \"{t}: você sabe como fazer?\"","Cena 2 (20 s): filme só as mãos mostrando 3 passos de {t}. Em cada passo, escreva uma frase curta na tela.","Cena 3 (3 s): texto \"Salve para não esquecer e me siga para mais!\""]},
+{n:"Só texto na tela",s:["Tela 1: pergunta \"O que ninguém conta sobre {t}?\"","Telas 2 a 4: uma dica por tela, com no máximo 8 palavras.","Tela final: \"Gostou? Comente qual dica você já conhecia.\"","Dica: use as músicas liberadas do próprio app (CapCut, Instagram ou TikTok)."]}],
+[{n:"Narração sobre imagens",s:["Grave sua voz: \"Oi, eu sou [seu nome]. Hoje vou te mostrar {t} de um jeito simples.\"","Continue: \"Primeiro, [dica 1]. Segundo, [dica 2]. Terceiro, [dica 3].\"","Termine: \"Se foi útil, me segue aqui para mais dicas.\"","Cubra a voz com fotos ou vídeos feitos por você."]},
+{n:"Pergunta e resposta",s:["Diga: \"Me perguntaram como começar com {t}.\"","Responda: \"A resposta curta é [resposta]. O detalhe importante é [detalhe].\"","Termine: \"Tem outra dúvida? Deixa nos comentários.\""]}],
+[{n:"Primeiro vídeo: apresentação",s:["Leia: \"Oi, eu sou [seu nome], moro em [sua cidade] e vou mostrar aqui tudo sobre {t}.\"","Continue: \"Se você também gosta disso, me segue. Hoje começo com uma dica: [dica].\"","Sorria no começo e no fim. Já ajuda muito."]},
+{n:"Contando uma experiência",s:["Leia: \"Quando comecei com {t}, eu errei nisso: [erro].\"","Continue: \"Aprendi que o certo é [aprendizado].\"","Termine: \"Se você está começando, faça assim. Me conta se ajudou!\""]}]
+];
+$("gr").onclick=function(){var t=$("rt").value.trim()||"o seu assunto";var h=$("ros");h.textContent="";
+R[+$("rf").value].forEach(function(r){var c=el("div","c");c.appendChild(el("b",0,r.n));
+var tx=r.s.map(function(x,i){return (i+1)+") "+x.replace(/\{t\}/g,t)}).join("\n");
+c.appendChild(el("pre",0,"\n"+tx));
+var b=el("button","b2","Copiar roteiro");b.onclick=function(){try{navigator.clipboard.writeText(tx);b.textContent="Copiado ✓"}catch(e){b.textContent="Selecione e copie"}};
+c.appendChild(b);star(c,t,tx);h.appendChild(c)})};
+var RC={
+"Em alta 2026":[
+['Chá de realidade (sem filtro)',['Gancho: "A verdade sobre {t} que ninguém mostra."','Mostre a parte real, sem arrumar: a bagunça, o erro ou o resultado de verdade.','Diga em 1 frase o que você sentiu ou aprendeu.','Final: "Isso acontece com você também? Me conta."']],
+['Me arrumando para... (GRWM)',['Gancho: "Vem comigo se preparar para {t}."','Filme 4 a 5 cenas curtas da sua preparação, conversando de leve com a câmera.','Conte 1 dica ou novidade enquanto faz.','Final: "Quer ver o resultado? Me segue."']],
+['Minissérie em partes',['Parte 1: conte uma história curta sobre {t} e termine com suspense: "Na parte 2 eu conto o que aconteceu."','Poste a parte 2 no dia seguinte, com o desfecho.','Dica: escreva Parte 1, Parte 2 na tela para a pessoa seguir a série.']],
+['Sons do preparo (ASMR)',['Cena única de 10 a 20 s com {t} sendo feito de perto.','Capte o som real: cortar, mexer, abrir, bater. Sem falar.','Texto curto na tela com o nome do que está fazendo.','Final: "Segue para mais."']],
+['Eu no começo x eu hoje',['Cena 1: um clipe ou foto sua começando com {t}, com o texto "No começo".','Cena 2: como está hoje, com o texto "Agora".','Conte em 1 frase o que mudou.','Final: "Todo começo é assim. Qual é o seu?"']],
+['Uma tomada só (sem edição)',['Grave tudo de uma vez, sem cortes, em 15 a 30 s.','Comece com: "Vou te mostrar {t} em 20 segundos."','Mostre, explique e termine na mesma cena.','Dica: a imperfeição não atrapalha. Vídeos simples e naturais têm ido bem.']]],
+"Vendas":[
+['Mostre e prove',['Gancho (3 s): diga "Isso resolve [problema] e custa só R$[preço]."','Mostre {t} sendo usado ou provado, em 10 a 15 s.','Diga 1 benefício e 1 detalhe (tamanho, sabor, cor).','Final: "Quer? Chame no WhatsApp, link na bio."']],
+['Quebre a dúvida',['Gancho: "Dizem que {t} não vale a pena. Será?"','Mostre 2 motivos reais pelos quais vale (resultado, durabilidade, preço).','Final: "Tirei sua dúvida? Comente que eu respondo."']]],
+"Marketing local":[
+['Bastidores do negócio',['Gancho: "Como é feito [seu produto] de {t}."','Filme 3 momentos do preparo, em cenas de 3 a 5 s.','Final: "Quer experimentar? Fazemos pedidos pelo WhatsApp."']],
+['Cliente feliz',['Peça autorização ao cliente antes de mostrar.','Mostre a mensagem ou foto dele com {t}, sem dados pessoais.','Final: "Obrigado pela confiança! Quem mais quer?"']]],
+"Música":[
+['Minha música (autoral)',['Gancho: "Fiz isso sobre {t}. Me diz o que acha."','Mostre 15 s da SUA composição, tocando ou cantando.','Final: "Quer a música completa? Me segue."','Importante: use só música sua ou da biblioteca liberada da plataforma.']],
+['Aprenda comigo',['Gancho: "3 passos para começar com {t}."','Ensine um passo por vez, em cenas de 5 a 8 s.','Final: "Pratica e me marca no seu vídeo."']]],
+"Educação":[
+['3 dicas em 30 s',['Gancho: "3 dicas de {t} que eu queria saber antes."','Uma dica por cena, com texto na tela.','Final: "Salva para consultar depois."']],
+['Passo a passo',['Gancho: "Como fazer {t} sem complicação."','Mostre os passos numerados, 1 por cena.','Final: "Ficou com dúvida? Pergunta nos comentários."']]],
+"Humor":[
+['Situação do dia a dia',['Gancho: "Todo mundo que mexe com {t} já passou por isso."','Encene a situação engraçada em 10 a 15 s.','Final: "Marca quem faz isso."']],
+['Expectativa x realidade',['Cena 1: o que você esperava de {t}.','Cena 2: o que realmente aconteceu.','Final: "Acontece com você também?"']]],
+"Dia a dia":[
+['Um dia comigo',['Gancho: "Um dia fazendo {t}."','Mostre manhã, tarde e noite em cenas de 3 s, com a hora na tela.','Final: "Quer ver mais da minha rotina? Me segue."']],
+['Meu erro e o que aprendi',['Gancho: "Errei feio em {t}."','Conte o erro em 1 frase e o que aprendeu em 2.','Final: "Já passou por isso? Me conta."']]]
+};
+Object.keys(RC).forEach(function(k){$("ob").appendChild(el("option",0,k))});
+$("go").onclick=function(){var t=$("rt").value.trim()||"o seu assunto";var h=$("ros2");h.textContent="";
+RC[$("ob").value].forEach(function(r){var c=el("div","c");c.appendChild(el("b",0,r[0]));
+var tx=r[1].map(function(x,i){return (i+1)+") "+x.replace(/\{t\}/g,t)}).join("\n");
+c.appendChild(el("pre",0,"\n"+tx));
+var b=el("button","b2","Copiar roteiro");b.onclick=function(){try{navigator.clipboard.writeText(tx);b.textContent="Copiado ✓"}catch(e){b.textContent="Selecione e copie"}};
+c.appendChild(b);star(c,t,tx);h.appendChild(c)})};
+var CH=["Grave só para você","Poste sua apresentação","Mostre seu produto ou tema em 15 s","Responda uma dúvida comum","Mostre os bastidores","Conte um erro e o que aprendeu","Peça opinião e agradeça"];
+$("ch").onclick=function(){CH.forEach(function(x,i){cal[i].i=x;cal[i].d=false});sv("cal",cal);rc();$("ch").textContent="Calendário atualizado ✓"};
+
+var FBC={apiKey:"AIzaSyB7KTky-89jAwkVni4mJVRRaVE63mcXf0U",authDomain:"euviral-26c41.firebaseapp.com",projectId:"euviral-26c41",appId:"1:334810915761:web:7ea3353c25d922243e9390"};
+var fu=null,fdb=null,fa=null,ft=null,fav=ld("fav",[]);
+function star(c,n,tx){var b=el("button","b2","⭐ Salvar");b.style.marginLeft="8px";
+b.onclick=function(){if(!fav.some(function(f){return f.n===n&&f.t===tx})){fav.push({n:n,t:tx});sv("fav",fav);rf()}b.textContent="Salvo ✓"};c.appendChild(b)}
+function rf(){var h=$("cfv");h.textContent="";
+if(!fav.length){h.appendChild(el("p","s","Nenhum roteiro salvo ainda. Toque em ⭐ Salvar em um roteiro."));return}
+fav.forEach(function(f,i){var c=el("div","c");c.appendChild(el("b",0,f.n));c.appendChild(el("pre",0,"\n"+f.t));
+var b=el("button","b2","Copiar");b.onclick=function(){try{navigator.clipboard.writeText(f.t);b.textContent="Copiado ✓"}catch(e){b.textContent="Selecione e copie"}};
+var d=el("button","b2","Remover");d.style.marginLeft="8px";d.onclick=function(){fav.splice(i,1);sv("fav",fav);rf()};
+c.appendChild(b);c.appendChild(d);h.appendChild(c)})}
+rf();
+function msg(t,ok){var m=$("cm");m.textContent=t;m.style.color=ok?"var(--ac)":"#d92d20"}
+var ERR={"auth/invalid-email":"E-mail inválido.","auth/missing-password":"Digite a senha.","auth/weak-password":"A senha precisa ter pelo menos 6 caracteres.","auth/email-already-in-use":"Este e-mail já tem conta. Toque em Entrar.","auth/invalid-credential":"E-mail ou senha incorretos.","auth/wrong-password":"E-mail ou senha incorretos.","auth/user-not-found":"E-mail ou senha incorretos.","auth/too-many-requests":"Muitas tentativas. Espere um pouco.","auth/network-request-failed":"Não consegui falar com o Firebase. Toque em Testar conexão.","auth/requires-recent-login":"Por segurança, entre de novo e repita.","auth/operation-not-allowed":"Falta ativar o login por e-mail e senha no Firebase.","auth/unauthorized-domain":"Falta autorizar este endereço no Firebase (Authentication > Settings > Authorized domains).","auth/invalid-api-key":"A chave do Firebase colada no app está errada.","auth/configuration-not-found":"Falta ativar o Authentication no Firebase."};
+function em(e){return ERR[e&&e.code]||"Não foi possível agora ("+((e&&e.code)||"erro")+")."}
+function lib(u){return new Promise(function(r,j){var x=document.createElement("script");x.src=u;x.onload=r;x.onerror=j;document.head.appendChild(x)})}
+function ui(){var on=!!fu;$("cf").style.display=on?"none":"block";$("co").style.display=on?"block":"none";
+$("cw").textContent=on?fu.email:"";$("hb").textContent=on?"👤 "+fu.email.split("@")[0]:"👤 Entrar"}
+function cs(){if(!fu||!fdb)return;clearTimeout(ft);
+ft=setTimeout(function(){fdb.collection("users").doc(fu.uid).set({cal:cal,fav:fav,t:Date.now()}).catch(function(){msg("Não consegui salvar na nuvem agora.")})},800)}
+function pull(){var u=fu;fdb.collection("users").doc(u.uid).get().then(function(d){
+if(d.exists){var x=d.data();
+if(x.cal&&x.cal.length===7){cal=x.cal;ls("cal",cal);rc()}
+if(x.fav){x.fav.forEach(function(f){if(!fav.some(function(g){return g.n===f.n&&g.t===f.t}))fav.push(f)})}
+ls("fav",fav);rf()}
+cs()}).catch(function(){msg("Não consegui carregar seus dados da nuvem.")})}
+var FB="https://www.gstatic.com/firebasejs/10.12.2/firebase-";
+function initFB(){
+if(!FBC.apiKey||FBC.apiKey.indexOf("COLE")===0){$("cf").style.display="none";$("cn").style.display="block";return}
+lib(FB+"app-compat.js").then(function(){return lib(FB+"auth-compat.js")}).then(function(){return lib(FB+"firestore-compat.js")}).then(function(){
+firebase.initializeApp(FBC);fa=firebase.auth();fdb=firebase.firestore();
+fa.onAuthStateChanged(function(u){fu=u;ui();if(u)pull()})
+}).catch(function(){$("cf").style.display="none";$("cn").style.display="block";$("cn").textContent="Não foi possível carregar o login. Confira a internet e tente de novo."})}
+$("ci").onclick=function(){if(!fa)return;msg("Entrando...",1);fa.signInWithEmailAndPassword($("ce").value.trim(),$("cp").value).then(function(){msg("Entrou!",1);$("cp").value=""}).catch(function(e){msg(em(e))})};
+$("cc").onclick=function(){if(!fa)return;msg("Criando conta...",1);fa.createUserWithEmailAndPassword($("ce").value.trim(),$("cp").value).then(function(){msg("Conta criada!",1);$("cp").value=""}).catch(function(e){msg(em(e))})};
+$("cr").onclick=function(){if(!fa)return;var e=$("ce").value.trim();if(!e){msg("Digite seu e-mail acima.");return}
+fa.sendPasswordResetEmail(e).then(function(){msg("Enviamos um e-mail para criar uma nova senha. Veja também o spam.",1)}).catch(function(x){msg(em(x))})};
+$("cx").onclick=function(){cal.forEach(function(x){x.i="";x.d=false});fav=[];ls("cal",cal);ls("fav",fav);rc();rf();clearTimeout(ft);fa.signOut();msg("Você saiu.",1)};
+$("cd").onclick=function(){if(!fu||!confirm("Apagar sua conta e todos os seus dados? Isso não pode ser desfeito."))return;
+var u=fu;fdb.collection("users").doc(u.uid).delete().then(function(){return u.delete()}).then(function(){cal.forEach(function(x){x.i="";x.d=false});fav=[];ls("cal",cal);ls("fav",fav);rc();rf();msg("Conta e dados apagados.",1)}).catch(function(e){msg(em(e))})};
+$("hb").onclick=function(){document.querySelectorAll("#nv button").forEach(function(x){x.classList.remove("on")});document.querySelectorAll("section").forEach(function(x){x.classList.remove("on")});$("t5").classList.add("on");window.scrollTo(0,0)};
+$("ct").onclick=function(){var o=$("cdg");o.textContent="Testando...";var out=["Internet do aparelho: "+(navigator.onLine?"ligada":"desligada")];
+function t(n,u,opt,show){return fetch(u,opt).then(function(r){return r.text().then(function(x){out.push(n+": respondeu"+(show?" ("+r.status+") "+x.slice(0,200):""))})}).catch(function(e){out.push(n+": FALHOU ("+e+")")})}
+t("1 Google (scripts)","https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js",{mode:"no-cors"},false)
+.then(function(){return t("2 Login (Firebase)","https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="+FBC.apiKey,{method:"POST",headers:{"Content-Type":"application/json"},body:"{}"},true)})
+.then(function(){return t("3 Banco de dados","https://firestore.googleapis.com/",{mode:"no-cors"},false)})
+.then(function(){o.textContent=out.join("\n")})};
+initFB();
+function show(id){document.querySelectorAll("#nv button").forEach(function(x){x.classList.remove("on")});document.querySelectorAll("section").forEach(function(x){x.classList.remove("on")});$(id).classList.add("on");window.scrollTo(0,0)}
+$("pv").onclick=function(e){e.preventDefault();show("t6")};
+$("pb").onclick=function(){show("t5")};
+var dip=null;
+window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dip=e;$("ib").style.display="block"});
+$("ib").onclick=function(){if(dip){dip.prompt();dip=null;$("ib").style.display="none"}};
+$("sh").onclick=function(){var u=location.origin+location.pathname,t="Conheça o Euviral: ideias e roteiros prontos para criar vídeos. Grátis!";
+if(navigator.share){navigator.share({title:"Euviral",text:t,url:u}).catch(function(){})}else{window.open("https://wa.me/?text="+encodeURIComponent(t+" "+u),"_blank")}};
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){})}
+</script>
+</body>
+</html>
