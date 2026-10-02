@@ -32,6 +32,9 @@ details{margin-top:6px;color:var(--mu);font-size:.92rem}summary{cursor:pointer;c
 .w{background:var(--ac2);border-radius:12px;padding:12px;font-size:.92rem;margin-bottom:12px}
 .d{display:flex;gap:8px;align-items:center;margin-bottom:8px}.d b{width:44px;font-size:.85rem}.d input[type=checkbox]{width:24px;height:24px}
 pre{white-space:pre-wrap;font:inherit;margin:0}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tile{border:0;border-radius:20px;padding:16px;text-align:left;color:#fff;font:inherit;cursor:pointer;min-height:112px;display:flex;flex-direction:column;justify-content:space-between;gap:8px}.tile b{font-size:1.05rem}.tile span{font-size:.82rem;opacity:.92}.w2{grid-column:span 2}
+.ga{background:linear-gradient(135deg,#6d4aff,#c04bff)}.gb{background:linear-gradient(135deg,#ff6a3d,#ffb347)}.gc{background:linear-gradient(135deg,#0ea5a4,#34d399)}.gd{background:linear-gradient(135deg,#2563eb,#38bdf8)}.ge{background:linear-gradient(135deg,#e11d74,#fb7185)}.gf{background:linear-gradient(135deg,#1f2937,#4b5563)}
+input[type=range]{padding:0}
 </style>
 </head>
 <body>
@@ -40,7 +43,39 @@ pre{white-space:pre-wrap;font:inherit;margin:0}
 <h1>🔥 Euviral</h1>
 <p class="s">Ideias, roteiros e organização para quem quer começar a criar conteúdo. Grátis.</p>
 
-<section id="t0" class="on">
+<section id="t7" class="on">
+<div class="g">
+<button class="tile w2 ga" data-go="t4"><b>🎭 Roteiros prontos</b><span>Sem vergonha e sem ideia: é só ler e gravar</span></button>
+<button class="tile gb" data-go="t8"><b>🖼️ Capas</b><span>Foto + texto no formato certo</span></button>
+<button class="tile gc" data-go="t0"><b>💡 Ideias</b><span>Ideias de vídeo</span></button>
+<button class="tile gd" data-go="t1"><b>✍️ Legenda</b><span>Texto e hashtags</span></button>
+<button class="tile ge" data-go="t2"><b>📅 Semana</b><span>Planeje e marque</span></button>
+<button class="tile w2 gf" data-go="t3"><b>🏆 Desafio de 30 dias</b><span>Um passo por dia para criar o hábito</span></button>
+</div>
+</section>
+
+<section id="t8">
+<div class="c"><h2>🖼️ Criador de capas</h2>
+<p class="s" style="margin:0 0 10px">Escolha uma foto (ou use um fundo de cor), escreva o título e baixe a capa.</p>
+<canvas id="cvs" style="width:100%;border-radius:12px;background:#000;display:block" aria-label="Prévia da capa"></canvas>
+<p class="s" style="font-size:.8rem;margin:6px 0 0">As áreas em vermelho são guias aproximadas de onde os apps cobrem a imagem. Elas não saem na imagem baixada.</p>
+<label for="cfi">Foto (opcional)</label><input id="cfi" type="file" accept="image/*">
+<label for="cf2">Formato</label><select id="cf2"><option value="a">Reels, TikTok e Stories (9:16)</option><option value="b">Feed (4:5)</option><option value="c">Quadrado (1:1)</option></select>
+<label for="cb">Cor de fundo (sem foto)</label><select id="cb"><option value="0">Roxo e rosa</option><option value="1">Laranja</option><option value="2">Azul</option><option value="3">Escuro</option></select>
+<label for="cfl">Filtro</label><select id="cfl"><option value="0,0,0">Nenhum</option><option value="5,15,35">Vívido</option><option value="0,10,-100">Preto e branco</option><option value="8,-10,-15">Suave</option></select>
+<label for="cbr">Brilho</label><input id="cbr" type="range" min="-50" max="50" value="0">
+<label for="cct">Contraste</label><input id="cct" type="range" min="-50" max="50" value="0">
+<label for="csa">Saturação</label><input id="csa" type="range" min="-100" max="100" value="0">
+<label for="ct2">Título da capa</label><input id="ct2" placeholder="ex.: 3 erros que todo iniciante comete">
+<label for="cs2">Tamanho do texto</label><select id="cs2"><option value="64">Pequeno</option><option value="96" selected>Médio</option><option value="140">Grande</option></select>
+<label for="cp2">Posição</label><select id="cp2"><option value="t">Topo</option><option value="c" selected>Centro</option><option value="b">Base</option></select>
+<label for="cc2">Cor do texto</label><select id="cc2"><option value="#ffffff">Branco</option><option value="#111111">Preto</option><option value="#ffd84d">Amarelo</option></select>
+<div class="d" style="margin-top:12px"><input type="checkbox" id="cbg" checked><label for="cbg" style="margin:0;font-weight:400">Fundo escuro atrás do texto</label></div>
+<div class="d"><input type="checkbox" id="cg" checked><label for="cg" style="margin:0;font-weight:400">Mostrar guias de enquadramento</label></div>
+<button class="b" id="cdl">Baixar capa (PNG)</button></div>
+</section>
+
+<section id="t0">
 <div class="c">
 <h2>1. Ideias de vídeo</h2>
 <label for="nic">Seu tema</label>
@@ -156,9 +191,9 @@ pre{white-space:pre-wrap;font:inherit;margin:0}
 </main>
 
 <nav id="nv">
-<button class="on" data-t="0"><span>💡</span>Ideias</button>
+<button class="on" data-t="7"><span>🏠</span>Início</button>
 <button data-t="4"><span>🎭</span>Roteiros</button>
-<button data-t="1"><span>✍️</span>Legenda</button>
+<button data-t="8"><span>🖼️</span>Capas</button>
 <button data-t="2"><span>📅</span>Semana</button>
 <button data-t="3"><span>📘</span>Guia</button>
 </nav>
@@ -334,7 +369,7 @@ t("1 Google (scripts)","https://www.gstatic.com/firebasejs/10.12.2/firebase-app-
 .then(function(){return t("3 Banco de dados","https://firestore.googleapis.com/",{mode:"no-cors"},false)})
 .then(function(){o.textContent=out.join("\n")})};
 initFB();
-function show(id){document.querySelectorAll("#nv button").forEach(function(x){x.classList.remove("on")});document.querySelectorAll("section").forEach(function(x){x.classList.remove("on")});$(id).classList.add("on");window.scrollTo(0,0)}
+function show(id){document.querySelectorAll("#nv button").forEach(function(x){x.classList.remove("on")});document.querySelectorAll("section").forEach(function(x){x.classList.remove("on")});$(id).classList.add("on");var nb=document.querySelector('#nv button[data-t="'+id.slice(1)+'"]');if(nb)nb.classList.add("on");window.scrollTo(0,0)}
 $("pv").onclick=function(e){e.preventDefault();show("t6")};
 $("pb").onclick=function(){show("t5")};
 var dip=null;
@@ -357,6 +392,28 @@ dt.appendChild(el("pre",0,"\n"+T30.map(function(x,i){return (d30.d.indexOf(i+1)>
 var r=el("button","b2","Reiniciar desafio");r.onclick=function(){if(confirm("Reiniciar o desafio?")){d30={s:null,d:[]};sv("d30",d30);r30()}};h.appendChild(r)}
 r30();
 if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){})}
+document.querySelectorAll(".tile").forEach(function(b){b.onclick=function(){show(b.dataset.go)}});
+var img=null,F={a:[1080,1920],b:[1080,1350],c:[1080,1080]},BG=[["#6d4aff","#ff6a88"],["#ff8a3d","#ffcf4d"],["#2563eb","#22d3ee"],["#111827","#374151"]];
+function wrap(x,t,mw){var w=t.split(/\s+/),l=[],c="";w.forEach(function(a){var n=c?c+" "+a:a;if(x.measureText(n).width>mw&&c){l.push(c);c=a}else c=n});if(c)l.push(c);return l}
+function dr(ex){var f=F[$("cf2").value],W=f[0],H=f[1],cv=$("cvs");cv.width=W;cv.height=H;var x=cv.getContext("2d");
+if(img){var s=Math.max(W/img.width,H/img.height),w=img.width*s,h=img.height*s;x.drawImage(img,(W-w)/2,(H-h)/2,w,h)}
+else{var g=x.createLinearGradient(0,0,W,H),k=BG[+$("cb").value];g.addColorStop(0,k[0]);g.addColorStop(1,k[1]);x.fillStyle=g;x.fillRect(0,0,W,H)}
+var b=+$("cbr").value*2.55,ct=(100+ +$("cct").value)/100,sa=(100+ +$("csa").value)/100;
+if(b||ct!==1||sa!==1){var d=x.getImageData(0,0,W,H),p=d.data;for(var i=0;i<p.length;i+=4){var r=(p[i]+b-128)*ct+128,e=(p[i+1]+b-128)*ct+128,u=(p[i+2]+b-128)*ct+128,m=.3*r+.59*e+.11*u;p[i]=m+(r-m)*sa;p[i+1]=m+(e-m)*sa;p[i+2]=m+(u-m)*sa}x.putImageData(d,0,0)}
+var t=$("ct2").value.trim();
+if(t){var fs=+$("cs2").value;x.font="800 "+fs+"px system-ui,Arial,sans-serif";x.textAlign="center";x.textBaseline="middle";
+var L=wrap(x,t,W*.8),lh=fs*1.2,th=L.length*lh,ps=$("cp2").value,cy=ps==="t"?H*.22:ps==="c"?H/2:H*.7;
+if($("cbg").checked){x.fillStyle="rgba(0,0,0,.55)";var pw=W*.88;x.fillRect((W-pw)/2,cy-th/2-24,pw,th+48)}
+x.fillStyle=$("cc2").value;x.shadowColor="rgba(0,0,0,.6)";x.shadowBlur=12;
+L.forEach(function(q,i){x.fillText(q,W/2,cy-th/2+lh/2+i*lh)});x.shadowBlur=0}
+if(!ex&&$("cg").checked){x.fillStyle="rgba(255,60,60,.28)";
+if(f===F.a){x.fillRect(0,0,W,H*.14);x.fillRect(0,H*.78,W,H*.22);x.fillRect(W*.88,H*.14,W*.12,H*.64)}
+else{var mg=W*.06;x.fillRect(0,0,W,mg);x.fillRect(0,H-mg,W,mg);x.fillRect(0,mg,mg,H-2*mg);x.fillRect(W-mg,mg,mg,H-2*mg)}}}
+["cf2","cb","cbr","cct","csa","ct2","cs2","cp2","cc2","cbg","cg"].forEach(function(i){$(i).addEventListener("input",function(){dr()})});
+$("cfl").onchange=function(){var v=this.value.split(",");$("cbr").value=v[0];$("cct").value=v[1];$("csa").value=v[2];dr()};
+$("cfi").onchange=function(){var f=this.files[0];if(!f)return;var im=new Image();im.onload=function(){img=im;dr();URL.revokeObjectURL(im.src)};im.onerror=function(){alert("Não consegui abrir essa foto. Tente outra.")};im.src=URL.createObjectURL(f)};
+$("cdl").onclick=function(){dr(true);$("cvs").toBlob(function(bl){if(!bl){alert("Não foi possível criar a imagem.");dr();return}var a=document.createElement("a");a.href=URL.createObjectURL(bl);a.download="euviral-capa.png";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},4000);dr()},"image/png")};
+dr();
 </script>
 </body>
 </html>
