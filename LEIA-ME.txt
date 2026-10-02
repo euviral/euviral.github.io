@@ -1,0 +1,46 @@
+EuViral — versão para o seu site (euviral.github.io)
+=====================================================
+
+O QUE É ESTE PACOTE
+É o seu app EuViral pronto para publicar no GitHub Pages
+(https://euviral.github.io). Contém apenas arquivos estáticos:
+nada de servidor, nada de dependências de terceiros rodando
+fora do seu site.
+
+O QUE ENVIAR
+Envie para a raiz do repositório "euviral.github.io" estes itens:
+
+  - index.html
+  - 404.html
+  - favicon.png
+  - robots.txt
+  - assets/  (pasta inteira)
+
+COMO ENVIAR (pelo site do GitHub)
+1. Acesse github.com/euviral/euviral.github.io
+2. Clique em "Add file" > "Upload files"
+3. Arraste o CONTEÚDO desta pasta (os 4 arquivos + a pasta assets)
+   para a página. Importante: apague/remova os arquivos antigos
+   que estiverem lá, para não misturar versões.
+4. Escreva algo como "Publica EuViral" e clique em "Commit changes".
+5. Aguarde 1 a 3 minutos e abra https://euviral.github.io
+   (se aparecer a versão antiga, force a atualização: Ctrl+F5).
+
+COMO ENVIAR (pela linha de comando, se preferir)
+  git clone https://github.com/euviral/euviral.github.io
+  cd euviral.github.io
+  rm -rf ./* ; cp -r /caminho/desta/pasta/* .
+  git add -A && git commit -m "Publica EuViral" && git push
+
+O QUE FICA IGUAL
+  - Feed com curtir/seguir, abas Descobrir / Para você / Seguindo
+  - Gravação de vídeo pela câmera (fica salvo no seu aparelho)
+  - Editor com filtros e texto
+  - Funciona em celular e computador
+
+O QUE FICA PENDENTE (sem back-end ainda)
+  - Publicações e rascunhos não ficam salvos entre visitas.
+    Isso exigirá contas de usuário + banco de dados.
+  - Edição avançada de vídeo (linha do tempo, cortes, áudio).
+
+Atualize sempre com uma nova versão desta pasta quando o app evoluir.
